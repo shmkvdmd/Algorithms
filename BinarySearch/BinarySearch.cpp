@@ -1,15 +1,14 @@
 ﻿#include <iostream>
 #include <vector>
 
-template<typename T>
-int binary_search(const std::vector<T> vec, int guessNumber)
+int binary_search(const std::vector<int> vec, int guessNumber)
 {
 	int min = 0;
 	int max = vec.size() - 1;
 	while (min <= max)
 	{
 		int mid = (min + max) / 2;
-		T currentGuess = vec[mid];
+		int currentGuess = vec[mid];
 		if (currentGuess == guessNumber)
 		{
 			return mid;
