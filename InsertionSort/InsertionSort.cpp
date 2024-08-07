@@ -2,26 +2,12 @@
 #include <vector>
 
 void InsertionSort(std::vector<int>& vec){
-    for(size_t j = 1; j != vec.size(); ++j){
-        int key = vec[j];
-        int i = j - 1;
-        while(i >= 0 && vec[i] > key){
-            vec[i + 1] = vec[i];
-            i = i - 1;
+    for(size_t i = 0; i != vec.size(); ++i){
+        int j = i;
+        while (j >= 0 && vec[j - 1] > vec[j]){
+            std::swap(vec[j - 1], vec[j]);
+            --j;
         }
-        vec[i + 1] = key;
-    }
-}
-
-void ReverseInsertionSort(std::vector<int>& vec){
-    for(size_t j = 1; j != vec.size(); ++j){
-        int key = vec[j];
-        int i = j - 1;
-        while(i >= 0 && vec[i] < key){
-            vec[i + 1] = vec[i];
-            i = i - 1;
-        }
-        vec[i + 1] = key;
     }
 }
 
@@ -36,7 +22,5 @@ void PrintVector(std::vector<int> vec){
 int main(){
     std::vector<int> vec{5,2,4,6,1,3};
     InsertionSort(vec);
-    PrintVector(vec);
-    ReverseInsertionSort(vec);
     PrintVector(vec);
 }
